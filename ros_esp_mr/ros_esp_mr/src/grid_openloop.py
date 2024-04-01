@@ -48,21 +48,26 @@ def move_z_angular(angular_velocity, duration):
 
 if __name__ == '__main__':
     try:
-        # Initialize the ROS node
-        rospy.init_node('move_robot', anonymous=True)
+         # Define the movement sequence
+        move_x_linear(0.5, 2.5)
+        rospy.sleep(1)
+        move_z_angular(-0.5, 1.8)
+        rospy.sleep(1) 
+        move_x_linear(0.1, 1.5)
+        rospy.sleep(1)
+        move_z_angular(-0.5, 1.8)
+        rospy.sleep(1)
+        move_x_linear(0.5, 2.6)
+        rospy.sleep(1)
+        move_z_angular(0.5, 1.9)
+        rospy.sleep(1)
+        move_x_linear(0.1, 1.7)
+        rospy.sleep(1)
+        move_z_angular(0.5, 1.9)
+        rospy.sleep(1)
+        move_x_linear(0.5, 2.5)
 
-        # Define the movement sequence
-        move_x_linear(0.5, 2.2)
-        move_z_angular(-0.5, 2.15)
-        move_x_linear(0.1, 1.2)
-        move_z_angular(-0.5, 2.15)
-        move_x_linear(0.5, 2.2)
-        move_z_angular(0.5, 2.15)
-        move_x_linear(0.1, 1)
-        move_z_angular(0.5, 2.15)
-        move_x_linear(0.5, 2.2)
-
-        print("Cleaning task completed.")
+        rospy.loginfo("Cleaning Task Completed.")
 
     except rospy.ROSInterruptException:
         pass
