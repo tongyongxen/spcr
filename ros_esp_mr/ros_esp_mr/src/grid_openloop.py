@@ -62,5 +62,7 @@ if __name__ == '__main__':
         move_z_angular(0.5, 2.15)
         move_x_linear(0.5, 2.2)
 
+        print("Cleaning task completed.")
+
     except rospy.ROSInterruptException:
         pass
